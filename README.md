@@ -2,21 +2,15 @@
 
 ## Problem Statement
 
-Many times, when we iterate a collection, we don't really need to keep the
-result ("return value") of invoking a function on each element. Maybe something
-internal to the element changes, but we don't need to keep track of it.
+Visiting each element in a collection is called "iterating a collection." When
+we do this, we usually run a function, or call a method on each element.
+Sometimes, when we do this, we don't really need to keep the result ("return
+value") of calling that function.  However, other times we **do** care about
+the result.  When this is so, we can use _more expressive_ code called
+"iterator methods."
 
-However, other times we very much **do** care about the result.
-
-For each `roommate` collect `rentTotal / roomates.length` into a jar called
-`rentPayment`. For each `roommate` find out whether they paid "July 2018" rent
-yet and, if not, invoke the `hassleForRent()` function on them.
-
-Code where we need to iterate across a collection and produce something new as
-a result is _very_ common. Instead of using the general `for...of`, JavaScript
-has _more expressive_ options called iterator methods. We're going to show how
-to tighten up your JavaScript iterations and be more expressive.
-
+In this lesson we're going to make our JavaScript iteration code shorter
+**and** more expressive.
 
 ## Objectives
 
@@ -40,12 +34,13 @@ for (const student of students) {
 ```
 
 In the example, maybe the `.eat()` method increases the `student`'s health
-level, but the return value is not something the loop cares to capture.
+level, but the return value is not something the loop cares to capture. From
+the `for...of` code's perspective, `.eat()` is a _void function_.  As such,
+`for...of` is _expressive_ for iterating through a collection _and doing void
+functions_.
 
-Recall that `for...of` is _expressive_ for iterating through a collection _and
-doing void functions_. Iterator methods, on the other hand, are _expressive_
-for iterating through a collection _and making something new from the return
-values_.
+Iterator methods are _expressive_ for iterating through a collection _and
+making something new from the return values_.
 
 The most common "iterator methods" are: `map()`, `reduce()`, `filter()`, and
 `find()`.
@@ -56,7 +51,7 @@ The most common "iterator methods" are: `map()`, `reduce()`, `filter()`, and
 We use `map()` when we want to perform some operation on each element in the
 collection, and "gather" the results into a new `Array`.
 
-We'll also use this as an opportunity to demonstrate some of the power of
+We'll also use this as a chance to demonstrate some of the power of
 functions in JavaScript. We'll write `map()` **four times** so you can see how
 the iterator functions allow us to write more _expressive_ code.
 
@@ -104,7 +99,7 @@ Keanu "Whoa."
 The iterator functions like `map()` expect to be _passed a function as an
 argument_ which they will hand each of their elements off to. In the case of
 `map()` it hands each element to the function and captures the return value of
-the function.
+the function into a new `Array`.
 
 This code is more expressive because it lives up to the promise of map. It
 creates a new `Array` after each element is "touched" by a function.
