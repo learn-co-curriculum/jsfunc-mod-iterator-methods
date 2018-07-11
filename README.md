@@ -106,7 +106,7 @@ creates a new `Array` after each element is "touched" by a function.
 
 One drawback to this code is that the `studentPatronusName` function doesn't do
 much work. It just returns something that the `student` _already_ knew how to
-do..  What if we use a function expression ("anonymous function") instead?
+do.  What if we use a function expression ("anonymous function") instead?
 
 ### `map` and a function expression
 
@@ -212,7 +212,9 @@ passed-in function is true, the member is loaded into a new `Array`.
 
 Here's a simple numerical example:
 
+```js
 [1,2,3,4,5].filter( n => n % 2 === 0 ) //=> [2,4]
+```
 
 This code's function _returns_ true if the element can be divided by 2 with no
 remainder (i.e. "is even").
